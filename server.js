@@ -8,61 +8,61 @@ console.log('Listening on port 3001.');
 //////////// INITIAL COMMANDS/////////////
 
 function mainMenu() {
-    inquirer.prompt([
-        {
-            name: "mainMenu",
-            type: "list",
-            message: `
-            MAIN MENU
-            ---------
-            Please select an option.
-            `,
-            choices: [
-                "View all Departments",
-                "View all Roles",
-                "View all Employees",
-                "Add Department", 
-                "Add Role",
-                "Add employee", 
-                "Update Employee's Role",
-                "Quit"
-            ]
-        }
-    ]).then(function (res) {
-        switch (res.mainMenu) {
-            case "View all Departments":
-                viewAllDept();
-            break;
+    // inquirer.prompt([
+    //     {
+    //         name: "mainMenu",
+    //         type: "list",
+    //         message: `
+    //         MAIN MENU
+    //         ---------
+    //         Please select an option.
+    //         `,
+    //         choices: [
+    //             "View all Departments",
+    //             "View all Roles",
+    //             "View all Employees",
+    //             "Add Department", 
+    //             "Add Role",
+    //             "Add employee", 
+    //             "Update Employee's Role",
+    //             "Quit"
+    //         ]
+    //     }
+    // ]).then(function (res) {
+    //     switch (res.mainMenu) {
+    //         case "View all Departments":
+    //             viewAllDept();
+    //         break;
 
-            case "View all Roles":
-                viewAllRoles();
-            break;
+    //         case "View all Roles":
+    //             viewAllRoles();
+    //         break;
 
-            case "View all Employees":
-                viewAllEmployees();
-            break;
+    //         case "View all Employees":
+    //             viewAllEmployees();
+    //         break;
 
-            case "Add a Department":
-                addDept();
-            break;
+    //         case "Add a Department":
+    //             addDept();
+    //         break;
 
-            case "Add a Role":
-                addRole();
-            break;
+    //         case "Add a Role":
+    //             addRole();
+    //         break;
 
-            case "Add an Employee":
-                addEmployee();
-            break;
+    //         case "Add an Employee":
+    //             addEmployee();
+    //         break;
 
-            case "Update an Employee Role":
-                updateEmployees();
-            break;
+    //         case "Update an Employee Role":
+    //             updateEmployees();
+    //         break;
 
-            case "Quit":
-                console.log("Thanks for updating your database, goodbye!");
-            break;
-        }
-    })//
+    //         case "Quit":
+    //             console.log("Thanks for updating your database, goodbye!");
+    //         break;
+    //     }
+    // })//
 };
 
 

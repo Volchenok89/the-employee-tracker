@@ -6,7 +6,7 @@ const db = mysql.createConnection(
     {
         host: process.env.DB_HOST,
         user: process.env.DB_USER,
-        password: VOLchenok*8,
+        password: process.env.DB_PW,
         database: "employee_tracker",
     }, 
     console.log('Connected to employee_tracker database.')
