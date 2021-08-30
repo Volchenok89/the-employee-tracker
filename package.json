@@ -22,7 +22,7 @@
     "console.table": "^0.10.0",
     "custom-env": "^2.0.1",
     "express": "^4.17.1",
-    "inquirer": "^8.1.0",
+    "inquirer": "^8.1.2",
     "mysql": "^2.18.1",
     "mysql2": "^2.3.0"
   }
