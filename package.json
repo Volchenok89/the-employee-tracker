@@ -20,6 +20,7 @@
   "homepage": "https://github.com/Volchenok89/the-employee-tracker#readme",
   "dependencies": {
     "console.table": "^0.10.0",
+    "custom-env": "^2.0.1",
     "express": "^4.17.1",
     "inquirer": "^8.1.0",
     "mysql": "^2.18.1",
