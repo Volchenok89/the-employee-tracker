@@ -132,22 +132,22 @@ function addRole() {
 function addEmployee() {
   inquirer.prompt([
     {
-      message: "What is their first name?",
+      message: "Add first name:",
       type: "input",
       name: "first_name"
     },
     {
-      message: "What is their last name?",
+      message: "Add last name:",
       type: "input",
       name: "last_name"
     },
     {
-      message: "What is their role ID?",
+      message: "Add role ID:",
       type: "number",
       name: "role_id"
     },
     {
-      message: "What is their manager ID?",
+      message: "Add manager ID:",
       type: "input",
       name: "manager_id"
     }

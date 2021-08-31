@@ -1,6 +1,6 @@
 USE employees;
 
-INSERT INTO department (name)
+INSERT INTO department(name)
 VALUES 
     ("Production"),
     ("Direction"),
@@ -10,7 +10,7 @@ VALUES
     ("Accounting"),
     ("Acting");
 
-INSERT INTO role (title, salary, department_id)
+INSERT INTO role(title, salary, department_id)
 VALUES
     ("Producer", 500000, 1),
     ("Director", 400000, 1),
@@ -20,7 +20,7 @@ VALUES
     ("Sales Engineer", 150000, 4),
     ("Actor/Actress", 300000, 5);
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
+INSERT INTO employee(first_name, last_name, role_id, manager_id)
 VALUES 
     ("Gerardo", "Carmon", 1, 1),
     ("Maggie", "Hakn", 2, 2),
