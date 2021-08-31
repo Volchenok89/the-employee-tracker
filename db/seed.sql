@@ -10,17 +10,21 @@ VALUES
 
 INSERT INTO role (title, salary, department_id)
 VALUES
-    ("Software Engineer", 200000, 1),
-    ("Product Manager", 160000, 2),
-    ("Support Specialist", 140000, 3),
-    ("Accounting Executive", 160000, 5),
+    ("Frontend Engineer", 150000, 1),
+    ("Backend Engineer", 150000, 1),
+    ("Product Manager", 130000, 2),
+    ("Support Specialist", 100000, 3),
+    ("Account Executive", 100000, 4),
     ("Sales Engineer", 120000, 4),
-  
+    ("Accounts Receivable", 140000, 5);
 
 INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES 
-    ("Mina", "Saberhagen", 1, null),
-    ("Tonchi", "Castro", 2, null),
-    ("Alexandra", "Karkali", 3, null),
-    ("Salem", "Saberhagen", 5, null);
-    ("Ruth", "Grimaldi", 4, null),
+    ("Patrick", "Lago", 1, 1),
+    ("Stephen", "Curry", 2, 2),
+    ("Klay", "Thompson", 3, null),
+    ("Draymond", "Green", 4, 3),
+    ("Steve", "Kerr", 5, 2),
+    ("James", "Wiseman", 6, null),
+    ("Andrew", "Wiggins", 7, 4),
+    ("Kevon", "Looney", 5, 2);
