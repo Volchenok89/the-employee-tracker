@@ -30,7 +30,7 @@ function mainMenu() {
     ]).then(function (res) {
         switch (res.mainMenu) {
             case "View all Departments":
-                viewAllDept();
+                viewAllDepartments();
             break;
 
             case "View all Roles":
@@ -42,7 +42,7 @@ function mainMenu() {
             break;
 
             case "Add a Department":
-                addDept();
+                addDepartment();
             break;
 
             case "Add a Role":
@@ -66,7 +66,7 @@ function mainMenu() {
 
 
 //////////SEE ALL DEPARTMENTS//////////
-function viewAllDept() {
+function viewAllDepartments() {
     db.query(`SELECT * FROM department;`, (err, data) => {
         if (err) throw err;
         console.table(data);
@@ -112,10 +112,7 @@ function addDepartment() {
 
 //////////ADD ROLE///////////
 function addRole() {
-    db.query(`SELECT role.title 
-    AS title, role.salary 
-    AS Salary 
-    FROM role`, function (err, res) {
+    db.query(`SELECT * FROM role`, function (err, res) {
         inquirer.prompt([
             {
                 name: "title",
