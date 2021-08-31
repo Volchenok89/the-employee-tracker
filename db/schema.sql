@@ -2,13 +2,13 @@ DROP DATABASE IF EXISTS employees;
 CREATE DATABASE employees;
 USE employees;
 
-CREATE TABLE department (
+CREATE TABLE department(
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(30) NULL,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE role (
+CREATE TABLE role(
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(30) NULL, 
     salary DECIMAL(8,2),
@@ -17,7 +17,7 @@ CREATE TABLE role (
 );
 
 
-CREATE TABLE employees (
+CREATE TABLE employees(
     id INT AUTO_INCREMENT PRIMARY KEY,
     first_name VARCHAR(30) NOT NULL,
     last_name VARCHAR(30) NOT NULL,
