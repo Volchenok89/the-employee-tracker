@@ -23,4 +23,4 @@ VALUES
     ("Tonchi", "Castro", 2, null),
     ("Alexandra", "Karkali", 3, null),
     ("Salem", "Saberhagen", 5, null);
-    ("Ruth", "Grimaldi", 6, null),
+    ("Ruth", "Grimaldi", 4, null),
