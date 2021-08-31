@@ -1,5 +1,5 @@
 const db = require('./db/connection');
-const conTable = require('console.table');
+const table = require('console.table');
 const inquirer = require('inquirer');
 
 const PORT = process.env.PORT || 3001;
@@ -197,32 +197,6 @@ function addEmployee() {
     })
 };
 
-///////SELECT TITLE FOR EMPLOYEE INPUT///////
-let roleArr = [];
-function selectRole() {
-    db.query(`SELECT * FROM role`, function (err, res) {
-        if (err) throw err;
-        for (var i = 0; i < res.length; i++) {
-            roleArr.push(res[i].title);
-        }
-    })
-    return roleArr;
-};
-
-////////SELECT ROLE FOR ADD EMPLOYEE INPUT///////
-let managerArr = [];
-function selectManager() {
-    db.query(`SELECT first_name, last_name 
-    FROM employees 
-    WHERE manager_id 
-    IS NULL`, function (err, res) {
-        if (err) throw err;
-        for (var i = 0; i < res.length; i++) {
-            managerArr.push(res[i].first_name);
-        }
-    })
-    return managerArr;
-}
 
 ///////////UPDATE EMPLOYEE////////////
 
