@@ -1,17 +1,14 @@
-DROP TABLE IF EXISTS employees;
-DROP TABLE IF EXISTS role;
-DROP TABLE IF EXISTS department;
+DROP DATABASE IF EXISTS employees;
 CREATE DATABASE employees;
 USE employees;
 
-
-CREATE TABLE department(
+CREATE TABLE department (
     id INT NOT NULL AUTO_INCREMENT,
     name VARCHAR(30) NULL,
     PRIMARY KEY (id)
 );
 
-CREATE TABLE role(
+CREATE TABLE role (
     id INT NOT NULL AUTO_INCREMENT,
     title VARCHAR(30) NULL, 
     salary DECIMAL(8,2),
@@ -19,11 +16,10 @@ CREATE TABLE role(
     PRIMARY KEY (id)
 );
 
-
-CREATE TABLE employees(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    first_name VARCHAR(30) NOT NULL,
-    last_name VARCHAR(30) NOT NULL,
+CREATE TABLE employee (
+    id INT NOT NULL AUTO_INCREMENT,
+    first_name VARCHAR(30) NULL,
+    last_name VARCHAR(30) NULL,
     role_id INT NULL,
     manager_id INT NULL,
     PRIMARY KEY (id)

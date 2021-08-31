@@ -26,7 +26,7 @@ VALUES
     ("Maggie", "Hakn", 2, 2),
     ("Todd", "Castro", 3, NULL),
     ("Mina", "Saberhagen", 4, 3),
-    ("Ruth", "Grimaldi", 5, NULL),
-    ("Gina", "Guti", 6, 5),
+    ("Ruth", "Grimaldi", 5, 2),
+    ("Gina", "Guti", 6, NULL),
     ("Elvis", "Tek", 7, 4);
    

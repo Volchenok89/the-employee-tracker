@@ -157,7 +157,7 @@ function addEmployee() {
     (err,data) => {
       if (err) throw err;
       console.log("Successfully added employee!");
-      // viewEmployees();
+      
       startPrompt();
     });
   });
