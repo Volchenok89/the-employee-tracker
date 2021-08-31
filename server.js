@@ -66,78 +66,59 @@ function mainMenu() {
 };
 
 
-////////////////Department names and Id's////////////////
+////////////////VIEW ALL DEPARTMENTS////////////////
 
 function viewAllDept() {
     db.query(`SELECT * FROM department;`, function (err, res) {
         if (err) throw err;
         console.table(res);
-        mainMenu()
+        startPrompt();
     });
 };
+
 
 /////////////////////// VIEW ALL ROLES//////////////////////////
 function viewAllRoles() {
-    db.query(`SELECT * FROM role; `, function  (err, res) {
-        if (err) throw err;
-        console.table(res);
-        mainMenu()
+    db.query(`SELECT * FROM role;`, (err, data) => {
+      if (err) throw err;
+      console.table(data);
+      startPrompt();
     });
-};
+  };
 
 //////////////// VIEW ALL EMPLOYEES///////////////////
 
-
 function viewAllEmployees() {
-  
-    db.query(`SELECT employees.id, employees.first_name, employees.last_name, role.title AS job_title, department.name AS department, role.salary, CONCAT(e.first_name, ' ', e.last_name) AS Manager 
-    FROM employees 
-    INNER JOIN role 
-    ON role.id = employees.role_id 
-    INNER JOIN department 
-    ON department.id = role.department_id 
-    LEFT JOIN employees e 
-    ON employees.manager_id = e.id;`,
-        function (err, res) {
-            if (err) throw err;
-            console.table(res);
-            mainMenu()
-        });
-};
-
-
-/////////////// ADD A DEPARTMENT//////////////////
+    db.query(`SELECT * FROM employee;`, (err, data) => {
+      if (err) throw err;
+      console.table(data);
+      startPrompt();
+    });
+  };
+/////////////// ADD DEPARTMENT//////////////////
 
 function addDept() {
+    inquirer.prompt({
+      type: "input",
+      name: "department",
+      message: "What department would you like to add?"
+    }).then(function(response) {
+      db.query(`INSERT INTO department:`,
+      [response.department], (err, data) => {
+        if (err) throw err;
+        console.log("Successfully created!");
+   
+        startPrompt();
+      })
+    })
+  }
 
-    inquirer.prompt([
-        {
-            name: "name",
-            type: "input",
-            message: "Type department to add:"
-        }
-    ]).then(function (res) {
-        const query = db.query(
-            `INSERT INTO department?:`,
-            {
-                name: res.name
-            },
-            function (err) {
-                if (err) throw err;
-                console.table(res);
-                mainMenu()
-            }
-        )
-    });
-};
 
-///////////////////////////// ADD EMPLOYEE ROLE///////////////////////////
+
+///////////////////////////// ADD ROLE///////////////////////////
 
 function addRole() {
-    db.query(`SELECT role.title 
-    AS title, role.salary 
-    AS Salary 
-    FROM role`, function (err, res) {
+   
         inquirer.prompt([
             {
                 name: "title",
@@ -154,95 +135,60 @@ function addRole() {
                 type: "input",
                 message: "Type department ID number:"
             }
-        ]).then(function (res) {
-            db.query(
-                "Insert into role?",
-                {
-                    title: res.title,
-                    salary: res.salary,
-                    department_id: res.department_id,
-                },
-                function (err) {
-                    if (err) throw err
-                    console.table(res);
-                    mainMenu()
-                }
-            )
-        });
-    });
-}
+        ]).then(function(response) {
+            db.query(`INSERT INTO role (title, salary, department_id):`,
+            [response.title, response.salary, response.department_id],
+            (err, data) => {
+              if (err) throw err;
+              console.log("Role created!");
+           
+              startPrompt();
+            });
+          });
+        };
 
-/////////////////////// ADD AN EMPLOYEE//////////////////////
+/////////////////////// ADD EMPLOYEE//////////////////////
 
 function addEmployee() {
     inquirer.prompt([
         {
             name: "firstName",
             type: "input",
-            message: "Type employee's first name:"
+            message: "Type employee's first name:",
         },
+
         {
             name: "lastName",
             type: "input",
-            message: "Type employee's last name:"
+            message: "Type employee's last name:",
         },
+
         {
             name: "role",
             type: "list",
             message: "Please type employees role:",
-            choices: selectRole()
+            choices: "role"
         },
+
         {
-            name: "manager",
-            type: "list",
-            message: "Please type manager:",
-            choices: selectManager()
-        },
-    ]).then(function (res) {
-        let roleId = selectRole().indexOf(res.role) + 1
-        let managerId = selectManager().indexOf(res.manager) + 1
-        db.query("Do you want to inser into imployees set?",
-            {
-                first_name: res.firstName,
-                last_name: res.lastName,
-                manager_id: managerId,
-                role_id: roleId
+            message: "What is their manager ID?",
+            type: "input",
+            name: "manager_id"
+          }
 
-            }, function (err) {
-                if (err) throw err
-                console.table(res)
-                mainMenu()
-            })
-    })
-};
 
-////////////////////////// SELECT ROLE TITLE ////////////////////////////
-let roleArr = [];
-function selectRole() {
-    db.query(`SELECT * FROM role`, function (err, res) {
-        if (err) throw err;
-        for (var i = 0; i < res.length; i++) {
-            roleArr.push(res[i].title);
-        }
-    })
-    return roleArr;
-};
+        ]).then(function(response) {
+            db.query(`Insert in employee?`,
+            [response.first_name, response.last_name, response.role_id, response.manager_id],
+            (err,data) => {
+              if (err) throw err;
+              console.log("Successfully added!");
+              
+              startPrompt();
+            });
+          });
+        };
 
-////////////////////////// SELECT MANAGER ////////////////////////////
-
-let managerArr = [];
-function selectManager() {
-    db.query(`SELECT first_name, last_name 
-    FROM employees 
-    WHERE manager_id 
-    IS NULL`, function (err, res) {
-        if (err) throw err;
-        for (var i = 0; i < res.length; i++) {
-            managerArr.push(res[i].first_name);
-        }
-    })
-    return managerArr;
-}
 
 /////////////////////// UPDATE EMPLOYEE ///////////////////////
 
@@ -271,7 +217,7 @@ function updateEmployees() {
                 if (err) throw err;
                 console.table(res);
                 console.log("Employee updated!.");
-                mainMenu();
+                startPrompt();
             });
     });
 }
