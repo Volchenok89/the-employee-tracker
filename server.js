@@ -78,14 +78,11 @@ function viewAllDept() {
 
 /////////////////////// VIEW ALL ROLES//////////////////////////
 function viewAllRoles() {
-    db.query(`SELECT role.*, department.name AS Department
-    FROM role 
-    LEFT JOIN department ON role.department_id = department.id;`,
-        function (err, res) {
-            if (err) throw err;
-            console.table(res);
-            mainMenu()
-        });
+    db.query(`SELECT * FROM role; `, function  (err, res) {
+        if (err) throw err;
+        console.table(res);
+        mainMenu()
+    });
 };
 
 //////////////// VIEW ALL EMPLOYEES///////////////////
