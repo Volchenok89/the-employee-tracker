@@ -1,6 +1,7 @@
-DROP DATABASE IF EXISTS employees;
-CREATE DATABASE employees;
-USE employees;
+DROP TABLE IF EXISTS employees;
+DROP TABLE IF EXISTS role;
+DROP TABLE IF EXISTS department;
+
 
 CREATE TABLE department(
     id INT NOT NULL AUTO_INCREMENT,

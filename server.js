@@ -4,17 +4,17 @@ const table = require('console.table');
 
 const db = mysql.createConnection(
     {
-      host: 'localhost',
-      user: 'root',
-      password: 'VOLchenok*8',
-      database: 'employees'
+      host: "localhost",
+      user: "root",
+      password: "VOLchenok*8",
+      database: "employees"
     },
-    console.log('Connected to database.')
+    console.log("Connected to database.")
 );
 
 db.connect(function (err) {
   if (err) throw err;
-  console.log('Welcome to the employee tracker!');
+  console.log("Welcome to the employee tracker!");
   startPrompt();
 });
 
