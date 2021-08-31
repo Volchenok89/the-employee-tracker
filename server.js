@@ -144,21 +144,28 @@ function addEmployee() {
     {
       message: "Add role ID:",
       type: "number",
-      name: "role_id"
+      choices: selectRole()
     },
     {
       message: "Add manager ID:",
       type: "input",
-      name: "manager_id"
+      choices: selectManager()
     }
-  ]).then(function(response) {
-    db.query(`Insert into employee?`,
-    [response.first_name, response.last_name, response.role_id, response.manager_id],
-    (err,data) => {
-      if (err) throw err;
-      console.log("Successfully added employee!");
+]).then(function (res) {
+    let roleId = selectRole().indexOf(res.role) + 1
+    let managerId = selectManager().indexOf(res.manager) + 1
+    db.query("INSERT INTO employeesT:",
+        {
+            first_name: res.firstName,
+            last_name: res.lastName,
+            manager_id: managerId,
+            role_id: roleId
+
+        }, function (err) {
+            if (err) throw err
+            console.table(res)
       
-      startPrompt();
+            mainMenu()
     });
   });
 };
