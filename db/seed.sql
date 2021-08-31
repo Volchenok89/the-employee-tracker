@@ -28,5 +28,5 @@ VALUES
     ("Mina", "Saberhagen", 4, 3),
     ("Ruth", "Grimaldi", 5, 2),
     ("Gina", "Guti", 6, null),
-    ("Elvis", "Tek", 7, 4),
+    ("Elvis", "Tek", 7, 4);
    
