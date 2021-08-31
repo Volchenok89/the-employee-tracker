@@ -50,10 +50,10 @@ function startPrompt() {
       case "Add a role":
         addRole()
         break;
-      case "Add an employee":
+      case "Add employee":
         addEmployee()
         break;
-      case "Update an employee role":
+      case "Update employee role":
         updateRole()
         break;
     };
