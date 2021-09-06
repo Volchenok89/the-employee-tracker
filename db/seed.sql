@@ -15,7 +15,7 @@ VALUES
     ("Staff", 60000, 4),
     ("Accounting Executive", 200000, 5);
 
-INSERT INTO employee (first_name, last_name, role_id, manager_id)
+INSERT INTO employee (first_name, last_name, role_id, manager_id, employee_id)
 VALUES
     ("Gerardo", "Carmon", 1, 1),
     ("Maggie", "Hakn", 2, 2),
