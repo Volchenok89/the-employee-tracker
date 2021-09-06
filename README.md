@@ -1,4 +1,4 @@
-# Challenge #18: 12. SQL Challenge: Employee Tracker.
+# Challenge #12. SQL Challenge: Employee Tracker.
 
 This is the repository for the employee tracking system.
 
