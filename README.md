@@ -25,9 +25,12 @@ ___
 
 
 ## Technologies used
-* node.js
-* JavaScript
-
+*JavaScript
+*Nodejs
+*Expressjs
+*MySQL database
+*MySQL2
+*console.table
 
 ___
 
