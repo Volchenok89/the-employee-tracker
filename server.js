@@ -198,14 +198,10 @@ function addEmployee() {
             type: "number",
             message: "Enter role Id:"
         },
-        {
-            name: "manager_id",
-            type: "number",
-            message: "Enter manager's Id:"
-        }
+       
 
     ]).then(function (response) {
-        db.query("INSERT INTO employee (first_name, last_name, role_id, manager_id) VALUES (?, ?, ?, ?)", [response.first_name, response.last_name, response.role_id, response.manager_id], function (err, data) {
+        db.query("INSERT INTO employee (first_name, last_name, role_id) VALUES (?, ?, ?)", [response.first_name, response.last_name, response.role_id], function (err, data) {
             if (err) throw err;
             console.log('Success!');
 
