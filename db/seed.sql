@@ -5,7 +5,7 @@ VALUES
     ("Direction"),
     ("Sound Engineer"),
     ("Acting"),
-    ("Video"),
+    ("Video");
   
 INSERT INTO role (title, salary, department_id)
 VALUES
