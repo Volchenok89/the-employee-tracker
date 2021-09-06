@@ -201,7 +201,7 @@ function addEmployee() {
        
 
     ]).then(function (response) {
-        db.query("INSERT INTO employee (first_name, last_name, role_id) VALUES (?, ?, ?)", [response.first_name, response.last_name, response.role_id], function (err, data) {
+        db.query("INSERT INTO employee (first_name, last_name, role_id, employee_id) VALUES (?, ?, ?)", [response.first_name, response.last_name, response.role_id, response.employee_id], function (err, data) {
             if (err) throw err;
             console.log('Success!');
 
